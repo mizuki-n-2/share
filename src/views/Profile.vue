@@ -32,7 +32,7 @@ export default {
       active: true,
       name: this.$store.state.user.name,
       profile: this.$store.state.user.profile
-    }
+    };
   },
   methods: {
     edit() {

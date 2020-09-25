@@ -39,7 +39,7 @@ export default {
     return {
       content: "",
       data: ""
-    }
+    };
   },
   methods: {
     send() {
@@ -53,7 +53,7 @@ export default {
           console.log(response);
           this.content = "";
           this.$router.go({
-            path: this.$route.currentRoute.path,
+            path: this.$router.currentRoute.path,
             force: true
           });
         });

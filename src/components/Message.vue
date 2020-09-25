@@ -18,9 +18,9 @@
             src="../assets/detail.png" 
             alt="" 
             @click="
-            $router.push({
-              path: '/detail/' + value.item.id,
-              params: { id: value.item.id }
+              $router.push({
+                path: '/detail/' + value.item.id,
+                params: { id: value.item.id }
             })
             "
             v-if="profile"
@@ -65,10 +65,12 @@ export default {
                 force: true
               });
             });
-          } else {
+          } 
+        });
+      } else {
             axios
               .post("https://glacial-earth-16448.herokuapp.com/api/like", {
-                share_id: this.share_id[index].item.id,
+                share_id: this.shares[index].item.id,
                 user_id: this.$store.state.user.id
               })
               .then((response) => {
@@ -79,8 +81,6 @@ export default {
                 });
               });
           }
-        });
-      }
     },
     del(index) {
       axios
@@ -109,13 +109,13 @@ export default {
             if (this.$route.name == "profile") {
               if(response.data.item.user_id == this.$store.state.user.id) {
                 data.push(response.data);
-              } else if (this.$route.name == "detail") {
+              }
+            } else if (this.$route.name == "detail") {
                 if(response.data.item.id == this.id) {
                   data.push(response.data);
                 }
-              } else {
+            } else {
                 data.push(response.data);
-              }
             }
           });
       }
@@ -124,10 +124,10 @@ export default {
     }
   },
   created() {
-    if(this.$route.name == "home") {
+    if(this.$route.name === "home") {
       this.path = false;
     }
-    if(this.$route.name == "detail") {
+    if(this.$route.name === "detail") {
       this.profile = false;
     }
     this.getShares();

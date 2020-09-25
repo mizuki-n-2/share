@@ -64,7 +64,5 @@ export default new Vuex.Store({
     changeUserData({ commit }, { profile }) {
       commit("changeUserData", profile);
     }
-  },
-  modules: {
   }
 });

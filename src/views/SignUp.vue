@@ -39,7 +39,7 @@ export default {
       })
       .then(response => {
         console.log(response);
-        this.$router.replace("/")
+        this.$router.replace("/");
       })
       .catch(error => {
         alert(error);
