@@ -38,7 +38,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      shares:[],
+      shares: [],
       path: true,
       profile: true
     };
